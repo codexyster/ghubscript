@@ -17,8 +17,10 @@ end
 
 function OnEvent(event, arg)
     if (event == "G_PRESSED" and arg == 2) then  -- G2 pressed
-        OutputLogMessage(tostring(hotkey_index))
-        CycleHotkeys()
-        OutputLogMessage("Executed hotkey: Win+Ctrl+Alt+1\n")
+        if (GetMKeyState()  == 1) then
+          OutputLogMessage(tostring(hotkey_index))
+          CycleHotkeys()
+          OutputLogMessage("Executed hotkey: Win+Ctrl+Alt+1\n")
+        end
     end
 end
